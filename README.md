@@ -17,7 +17,7 @@ Ouvrir l'adresse affichee dans le terminal, normalement http://localhost:3000.
 - Changement vise obligatoire au tout debut du questionnaire.
 - Formulaire final : fonction, secteur, taille, email facultatif avec accord explicite.
 - Enregistrement serveur, restitution immediate par lien personnel aleatoire.
-- Freins et moteurs distincts par famille et par echelle ; export CSV et impression PDF.
+- Freins et moteurs distincts par famille et par echelle ; telechargement PDF de la restitution HTML, export CSV et impression.
 - Resultats par famille regroupes par echelle : individuelle, organisationnelle, culturelle, politique et institutionnelle. Le meme ordre est utilise dans les exports individuels et administrateur.
 - Aucun email automatique : les adresses consenties sont conservees pour l'envoi ulterieur des resultats globaux par l'organisateur.
 
@@ -61,6 +61,10 @@ npx playwright test --config playwright.supabase.config.ts
 ```
 
 ## Configuration Supabase et Vercel
+
+Le bouton **Telecharger ma restitution (PDF)** genere un document A4 cote serveur a partir du meme composant HTML et des memes styles que la page de resultats. Il contient le contexte, la synthese, les graphiques, les 14 familles et les explications, avec du texte selectionnable. Le lien personnel donne egalement acces a `/api/results/[id]/pdf` ; l'email n'est pas inclus et le document n'est pas mis en cache. Aucun service PDF externe ne recoit les resultats. L'export CSV individuel et l'impression restent disponibles.
+
+Sur Vercel, Chromium est fourni par `@sparticuz/chromium`, inclus dans les fichiers de la fonction PDF ; aucune variable supplementaire n'est necessaire. En local, installer Google Chrome ou definir `PDF_CHROMIUM_EXECUTABLE_PATH` vers un executable Chrome/Chromium. Les tests utilisent automatiquement le navigateur de Playwright. La generation dispose d'un delai maximal de 60 secondes sur Vercel.
 
 1. Creer un projet Supabase. Dans **SQL Editor**, executer une fois le contenu de `supabase/migrations/202610190001_storage.sql`. La migration cree les tables, active RLS et retire les droits aux roles publics `anon` et `authenticated`. Aucun acces navigateur direct n'est necessaire.
 2. Recuperer la Project URL et une cle secrete `sb_secret_...` dans les reglages du projet. Ajouter `SUPABASE_URL` et `SUPABASE_SECRET_KEY` dans `.env.local` en conservant `ADMIN_PASSWORD` (au moins 20 caracteres). `.env.example` documente les noms sans contenir de secrets. Ne jamais prefixer la cle secrete par `NEXT_PUBLIC_`.

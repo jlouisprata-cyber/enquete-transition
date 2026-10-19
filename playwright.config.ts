@@ -1,4 +1,4 @@
-import { defineConfig, devices } from "@playwright/test";
+import { chromium, defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
   testDir: "./tests",
@@ -16,6 +16,7 @@ export default defineConfig({
       SUPABASE_URL: "",
       SUPABASE_SECRET_KEY: "",
       VERCEL: "",
+      PDF_CHROMIUM_EXECUTABLE_PATH: chromium.executablePath(),
       SURVEY_DATA_DIR: "./test-results/responses",
       ADMIN_PASSWORD: "admin-password-for-automated-tests-only-2026",
     },

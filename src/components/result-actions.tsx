@@ -9,8 +9,31 @@ import {
   type AnswerMap,
 } from "@/lib/questionnaire";
 
-export default function ResultActions({ answers }: { answers: AnswerMap }) {
+export default function ResultActions({ answers, id }: { answers: AnswerMap; id: string }) {
   const [message, setMessage] = useState("");
+  const [downloading, setDownloading] = useState(false);
+  async function downloadPdf() {
+    setDownloading(true);
+    setMessage("Préparation de votre PDF…");
+    try {
+      const response = await fetch(`/api/results/${id}/pdf`, { cache: "no-store" });
+      if (!response.ok || !response.headers.get("content-type")?.includes("application/pdf"))
+        throw new Error("PDF indisponible");
+      const url = URL.createObjectURL(await response.blob());
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = "ma-restitution-transitions.pdf";
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 60_000);
+      setMessage("Votre PDF est prêt.");
+    } catch {
+      setMessage("Le PDF n’a pas pu être généré. Réessayez ou utilisez le bouton Imprimer.");
+    } finally {
+      setDownloading(false);
+    }
+  }
   async function copy() {
     try {
       await navigator.clipboard.writeText(window.location.href);
@@ -60,8 +83,11 @@ export default function ResultActions({ answers }: { answers: AnswerMap }) {
   }
   return (
     <div className="result-actions no-print">
-      <button className="button primary" onClick={() => window.print()}>
-        <Printer size={16} /> Imprimer / PDF
+      <button className="button primary" onClick={downloadPdf} disabled={downloading} aria-busy={downloading}>
+        <Download size={16} /> {downloading ? "Préparation du PDF…" : "Télécharger ma restitution (PDF)"}
+      </button>
+      <button className="button secondary" onClick={() => window.print()}>
+        <Printer size={16} /> Imprimer
       </button>
       <button className="button secondary" onClick={download}>
         <Download size={16} /> Télécharger les scores

@@ -10,9 +10,11 @@
     "admin:setup": "node scripts/setup-admin.mjs"
   },
   "dependencies": {
+    "@sparticuz/chromium": "153.0.0",
     "@supabase/supabase-js": "^2.118.0",
     "lucide-react": "^1.58.0",
     "next": "16.3.3",
+    "puppeteer-core": "25.14.0",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
@@ -24,6 +26,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.3.3",
+    "pdfjs-dist": "^6.4.299",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

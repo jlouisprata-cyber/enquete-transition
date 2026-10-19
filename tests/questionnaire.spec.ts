@@ -1,4 +1,5 @@
 import { test, expect, type Page } from "@playwright/test";
+import { readFile } from "node:fs/promises";
 import {
   calculate,
   classify,
@@ -195,6 +196,49 @@ test("complete anonymous journey, resume, charts, exports and personal link", as
   expect((await download).suggestedFilename()).toBe(
     "ma-restitution-transitions.csv",
   );
+  await page.route("**/api/results/*/pdf", (route) => route.fulfill({
+    status: 500, contentType: "application/json", body: '{"error":"Unavailable"}',
+  }));
+  const pdfButton = page.getByRole("button", { name: "Télécharger ma restitution (PDF)" });
+  await pdfButton.click();
+  await expect(page.getByRole("status")).toContainText("Le PDF n’a pas pu être généré");
+  await expect(pdfButton).toBeEnabled();
+  await page.unroute("**/api/results/*/pdf");
+  const pdfDownload = page.waitForEvent("download");
+  const pdfResponse = page.waitForResponse((response) => response.url().endsWith("/pdf"));
+  await pdfButton.click();
+  const generated = await pdfResponse;
+  expect(generated.status()).toBe(200);
+  expect(generated.headers()["content-type"]).toBe("application/pdf");
+  expect(generated.headers()["cache-control"]).toContain("no-store");
+  const pdf = await pdfDownload;
+  expect(pdf.suggestedFilename()).toBe("ma-restitution-transitions.pdf");
+  const pdfPath = "test-results/restitution-utilisateur.pdf";
+  await pdf.saveAs(pdfPath);
+  const bytes = await readFile(pdfPath);
+  expect(bytes.subarray(0, 5).toString()).toBe("%PDF-");
+  const { getDocument } = await import("pdfjs-dist/legacy/build/pdf.mjs");
+  const pdfTask = getDocument({ data: new Uint8Array(bytes), useSystemFonts: true });
+  const pdfDocument = await pdfTask.promise;
+  try {
+    expect(pdfDocument.numPages).toBeGreaterThan(1);
+    expect(pdfDocument.numPages).toBeLessThanOrEqual(6);
+    let text = "";
+    for (let index = 1; index <= pdfDocument.numPages; index++) {
+      const content = await (await pdfDocument.getPage(index)).getTextContent();
+      text += content.items.map((item) => "str" in item ? item.str : "").join(" ") + " ";
+    }
+    text = text.replace(/\s+/g, " ");
+    expect(text).toContain("Votre regard sur la transition.");
+    expect(text).toContain("Réduire les déplacements professionnels");
+    expect(text).toContain("Une lecture à prendre avec recul");
+    for (const title of new Set(questions.map((q) => q.title))) expect(text).toContain(title);
+    expect(text).not.toContain("Télécharger ma restitution");
+  } finally {
+    await pdfTask.destroy();
+  }
+  const missingPdf = await request.get("/api/results/invalid-token/pdf");
+  expect(missingPdf.status()).toBe(404);
   await page.reload();
   await expect(
     page.getByText("Réduire les déplacements professionnels", { exact: true }),

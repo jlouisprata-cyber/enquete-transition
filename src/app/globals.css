@@ -67,6 +67,7 @@ fieldset:focus-visible {
 h1,
 h2,
 h3,
+h4,
 p {
   margin: 0;
 }
@@ -1518,6 +1519,7 @@ td {
   body {
     background: white;
     font-size: 11px;
+    line-height: 1.5;
     print-color-adjust: exact;
   }
   .no-print,
@@ -1532,6 +1534,9 @@ td {
     font-size: 29px;
   }
   .result-overview,
+  .interpretation > div,
+  .scale-results,
+  .family-scale-group,
   .scale-result,
   .family-score,
   .methodology,
@@ -1540,9 +1545,22 @@ td {
   }
   .result-overview {
     margin: 20px 0;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
   .interpretation {
+    grid-template-columns: 1fr 1fr;
     gap: 25px;
+  }
+  .scales-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .scale-result,
+  .family-score {
+    padding: 14px;
+  }
+  .family-score-title {
+    min-height: 55px;
   }
   .results-section-heading,
   .family-scale-heading {
