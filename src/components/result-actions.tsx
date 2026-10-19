@@ -2,14 +2,8 @@
 
 import { useState } from "react";
 import { Check, Copy, Download, Printer } from "lucide-react";
-import {
-  calculate,
-  questions,
-  scaleNames,
-  type AnswerMap,
-} from "@/lib/questionnaire";
 
-export default function ResultActions({ answers, id }: { answers: AnswerMap; id: string }) {
+export default function ResultActions({ id }: { id: string }) {
   const [message, setMessage] = useState("");
   const [downloading, setDownloading] = useState(false);
   async function downloadPdf() {
@@ -44,43 +38,6 @@ export default function ResultActions({ answers, id }: { answers: AnswerMap; id:
       );
     }
   }
-  function download() {
-    const results = calculate(answers);
-    const rows: (string | number)[][] = [
-      ["Échelle de lecture", "Famille", "Freins / 5", "Moteurs / 5", "Lecture"],
-      ...Object.entries(scaleNames).flatMap(([code, name]) =>
-        results
-          .filter((r) => r.scale === code)
-          .map((r) => [
-            name,
-            r.title,
-            r.brakes.toFixed(2),
-            r.drivers.toFixed(2),
-            r.status,
-          ]),
-      ),
-      [],
-      ["Affirmation", "Type", "Réponse / 5"],
-      ...questions.map((q) => [q.text, q.type, answers[q.id]]),
-    ];
-    const csv =
-      "\uFEFF" +
-      rows
-        .map((row) =>
-          row
-            .map((cell) => `"${String(cell).replaceAll('"', '""')}"`)
-            .join(";"),
-        )
-        .join("\r\n");
-    const url = URL.createObjectURL(
-      new Blob([csv], { type: "text/csv;charset=utf-8;" }),
-    );
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "ma-restitution-transitions.csv";
-    link.click();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
-  }
   return (
     <div className="result-actions no-print">
       <button className="button primary" onClick={downloadPdf} disabled={downloading} aria-busy={downloading}>
@@ -88,9 +45,6 @@ export default function ResultActions({ answers, id }: { answers: AnswerMap; id:
       </button>
       <button className="button secondary" onClick={() => window.print()}>
         <Printer size={16} /> Imprimer
-      </button>
-      <button className="button secondary" onClick={download}>
-        <Download size={16} /> Télécharger les scores
       </button>
       <button className="button secondary" onClick={copy}>
         {message === "Lien personnel copié" ? (

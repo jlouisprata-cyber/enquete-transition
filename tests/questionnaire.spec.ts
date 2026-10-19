@@ -191,11 +191,7 @@ test("complete anonymous journey, resume, charts, exports and personal link", as
     await page.evaluate(() => localStorage.getItem("transitions-survey-v1")),
   ).toBeNull();
   const resultUrl = page.url();
-  const download = page.waitForEvent("download");
-  await page.getByRole("button", { name: "Télécharger les scores" }).click();
-  expect((await download).suggestedFilename()).toBe(
-    "ma-restitution-transitions.csv",
-  );
+  await expect(page.getByRole("button", { name: "Télécharger les scores" })).toHaveCount(0);
   await page.route("**/api/results/*/pdf", (route) => route.fulfill({
     status: 500, contentType: "application/json", body: '{"error":"Unavailable"}',
   }));

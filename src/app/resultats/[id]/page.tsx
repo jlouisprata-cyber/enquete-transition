@@ -25,7 +25,7 @@ export default async function ResultPage({ params }: { params: Promise<{ id: str
           Revenir au questionnaire <ArrowUpRight size={15} />
         </Link>
       }>
-        <ResultActions answers={record.answers} id={record.id} />
+        <ResultActions id={record.id} />
       </ResultReport>
     </>
   );
