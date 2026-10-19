@@ -2,6 +2,7 @@ import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
   testDir: "./tests",
+  testIgnore: "supabase.spec.ts",
   fullyParallel: false,
   workers: 1,
   timeout: 90_000,
@@ -12,6 +13,9 @@ export default defineConfig({
     reuseExistingServer: false,
     timeout: 90_000,
     env: {
+      SUPABASE_URL: "",
+      SUPABASE_SECRET_KEY: "",
+      VERCEL: "",
       SURVEY_DATA_DIR: "./test-results/responses",
       ADMIN_PASSWORD: "admin-password-for-automated-tests-only-2026",
     },
