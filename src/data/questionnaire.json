@@ -1,0 +1,330 @@
+[
+  {
+    "id": "G01-1",
+    "family": "G01",
+    "title": "Habitudes et disponibilité mentale",
+    "scale": "I",
+    "text": "Notre agenda et notre charge de travail laissent peu de temps pour repenser les routines et les décisions habituelles.",
+    "type": "Frein"
+  },
+  {
+    "id": "G01-2",
+    "family": "G01",
+    "title": "Habitudes et disponibilité mentale",
+    "scale": "I",
+    "text": "Les équipes saisissent les moments de rupture (réorganisation, arrivées, crise) pour revoir nos pratiques.",
+    "type": "Moteur"
+  },
+  {
+    "id": "G01-3",
+    "family": "G01",
+    "title": "Habitudes et disponibilité mentale",
+    "scale": "I",
+    "text": "Les équipes organisent des temps collectifs pour interroger nos automatismes.",
+    "type": "Moteur"
+  },
+  {
+    "id": "G02-1",
+    "family": "G02",
+    "title": "Accès matériel et facilité de choix",
+    "scale": "P",
+    "text": "L\u0027option durable ou robuste est souvent plus chère, plus complexe ou moins disponible que l\u0027option habituelle.",
+    "type": "Frein"
+  },
+  {
+    "id": "G02-2",
+    "family": "G02",
+    "title": "Accès matériel et facilité de choix",
+    "scale": "P",
+    "text": "Nos options par défaut (achats, déplacements, offres) sont déjà les plus durables ou robustes.",
+    "type": "Moteur"
+  },
+  {
+    "id": "G02-3",
+    "family": "G02",
+    "title": "Accès matériel et facilité de choix",
+    "scale": "P",
+    "text": "Nous disposons des équipements et financements qui rendent l\u0027alternative praticable.",
+    "type": "Moteur"
+  },
+  {
+    "id": "G03-1",
+    "family": "G03",
+    "title": "Compétences et sentiment de pouvoir agir",
+    "scale": "I",
+    "text": "Beaucoup de collaborateurs doutent que leur action change réellement quelque chose.",
+    "type": "Frein"
+  },
+  {
+    "id": "G03-2",
+    "family": "G03",
+    "title": "Compétences et sentiment de pouvoir agir",
+    "scale": "I",
+    "text": "Les équipes disposent d\u0027outils et de formations concrets, adaptés à leur métier.",
+    "type": "Moteur"
+  },
+  {
+    "id": "G03-3",
+    "family": "G03",
+    "title": "Compétences et sentiment de pouvoir agir",
+    "scale": "I",
+    "text": "Les progrès sont rendus visibles et valorisés, individuellement et collectivement.",
+    "type": "Moteur"
+  },
+  {
+    "id": "G04-1",
+    "family": "G04",
+    "title": "Valeurs et sens du changement",
+    "scale": "I",
+    "text": "Les messages sur la transition, internes et externes, me paraissent abstraits ou en décalage avec les valeurs et le quotidien des équipes.",
+    "type": "Frein"
+  },
+  {
+    "id": "G04-2",
+    "family": "G04",
+    "title": "Valeurs et sens du changement",
+    "scale": "I",
+    "text": "Chacun tend à renvoyer la responsabilité sur d\u0027autres (État, concurrents, direction).",
+    "type": "Frein"
+  },
+  {
+    "id": "G04-3",
+    "family": "G04",
+    "title": "Valeurs et sens du changement",
+    "scale": "I",
+    "text": "Les collaborateurs sont en mesure de relier la transition à des bénéfices concrets et proches (santé, économies, sens du travail, qualité de vie au travail...).",
+    "type": "Moteur"
+  },
+  {
+    "id": "G05-1",
+    "family": "G05",
+    "title": "Normes sociales et reconnaissance",
+    "scale": "C",
+    "text": "S\u0027écarter des pratiques habituelles du secteur ou du groupe expose à un coût de réputation ou de carrière.",
+    "type": "Frein"
+  },
+  {
+    "id": "G05-2",
+    "family": "G05",
+    "title": "Normes sociales et reconnaissance",
+    "scale": "C",
+    "text": "Les comportements durables sont visibles et valorisés par les pairs et la hiérarchie.",
+    "type": "Moteur"
+  },
+  {
+    "id": "G05-3",
+    "family": "G05",
+    "title": "Normes sociales et reconnaissance",
+    "scale": "C",
+    "text": "Des relais crédibles dans chaque métier portent publiquement des engagements.",
+    "type": "Moteur"
+  },
+  {
+    "id": "G06-1",
+    "family": "G06",
+    "title": "Confiance et crédibilité",
+    "scale": "C",
+    "text": "Une part conséquente des équipes ou des parties prenantes doute de la cohérence des engagements de la hiérarchie.",
+    "type": "Frein"
+  },
+  {
+    "id": "G06-2",
+    "family": "G06",
+    "title": "Confiance et crédibilité",
+    "scale": "C",
+    "text": "Nous construisons la confiance par des relations suivies et des actions communes, pas seulement par des rapports.",
+    "type": "Moteur"
+  },
+  {
+    "id": "G06-3",
+    "family": "G06",
+    "title": "Confiance et crédibilité",
+    "scale": "C",
+    "text": "À l\u0027échelle de notre organisation, nos décisions et nos actes sont cohérents avec nos discours.",
+    "type": "Moteur"
+  },
+  {
+    "id": "G07-1",
+    "family": "G07",
+    "title": "Émotions et régulation du stress",
+    "scale": "I",
+    "text": "Notre communication sur les enjeux du changement peut produire de la culpabilité, de l\u0027alarmisme ou du découragement.",
+    "type": "Frein"
+  },
+  {
+    "id": "G07-2",
+    "family": "G07",
+    "title": "Émotions et régulation du stress",
+    "scale": "I",
+    "text": "Nous accueillons les émotions (inquiétude, tristesse, colère) et les orientons vers des actions possibles.",
+    "type": "Moteur"
+  },
+  {
+    "id": "G07-3",
+    "family": "G07",
+    "title": "Émotions et régulation du stress",
+    "scale": "I",
+    "text": "Les décideurs sont formés à réguler le stress et les émotions dans les arbitrages.",
+    "type": "Moteur"
+  },
+  {
+    "id": "G08-1",
+    "family": "G08",
+    "title": "Participation et pouvoir de décision",
+    "scale": "P",
+    "text": "Les initiatives sont décidées d\u0027en haut, sans prise réelle des équipes ou des parties prenantes sur les décisions.",
+    "type": "Frein"
+  },
+  {
+    "id": "G08-2",
+    "family": "G08",
+    "title": "Participation et pouvoir de décision",
+    "scale": "P",
+    "text": "Des personnes de tous niveaux et métiers co-construisent nos règles et objectifs.",
+    "type": "Moteur"
+  },
+  {
+    "id": "G08-3",
+    "family": "G08",
+    "title": "Participation et pouvoir de décision",
+    "scale": "P",
+    "text": "Les intérêts des absents (clients, fournisseurs, territoire, riverains, vivant...) pèsent dans nos décisions.",
+    "type": "Moteur"
+  },
+  {
+    "id": "G09-1",
+    "family": "G09",
+    "title": "Justice et vulnérabilités",
+    "scale": "P",
+    "text": "Nous ne nous préoccupons pas des conséquences de la transformation sur les publics les plus fragiles et leur exposition au risque du changement.",
+    "type": "Frein"
+  },
+  {
+    "id": "G09-2",
+    "family": "G09",
+    "title": "Justice et vulnérabilités",
+    "scale": "P",
+    "text": "Nous apportons un accompagnement spécifique, un support et une protection aux personnes les plus exposées.",
+    "type": "Moteur"
+  },
+  {
+    "id": "G10-1",
+    "family": "G10",
+    "title": "Cohérence du pilotage des organisations",
+    "scale": "O",
+    "text": "Managers et équipes sont évalués et récompensés sur des critères financiers qui contredisent les ambitions de la transformation.",
+    "type": "Frein"
+  },
+  {
+    "id": "G10-2",
+    "family": "G10",
+    "title": "Cohérence du pilotage des organisations",
+    "scale": "O",
+    "text": "Évaluation, carrières, formation et indicateurs sont alignés sur les finalités de la transition.",
+    "type": "Moteur"
+  },
+  {
+    "id": "G10-3",
+    "family": "G10",
+    "title": "Cohérence du pilotage des organisations",
+    "scale": "O",
+    "text": "Les dirigeants montrent l\u0027exemple et assument des arbitrages en faveur de ces finalités.",
+    "type": "Moteur"
+  },
+  {
+    "id": "G11-1",
+    "family": "G11",
+    "title": "Expérimentation et apprentissage",
+    "scale": "O",
+    "text": "Tenter une initiative nouvelle est risqué : un résultat décevant est sanctionné.",
+    "type": "Frein"
+  },
+  {
+    "id": "G11-2",
+    "family": "G11",
+    "title": "Expérimentation et apprentissage",
+    "scale": "O",
+    "text": "Nous avons une marge pour expérimenter et analysons les échecs sans sanction.",
+    "type": "Moteur"
+  },
+  {
+    "id": "G11-3",
+    "family": "G11",
+    "title": "Expérimentation et apprentissage",
+    "scale": "O",
+    "text": "Nous mesurons les effets des expérimentations et pouvons réellement ajuster le plan en cours de route.",
+    "type": "Moteur"
+  },
+  {
+    "id": "G12-1",
+    "family": "G12",
+    "title": "Horizons économiques et cadres institutionnels",
+    "scale": "P",
+    "text": "Marchés, échéances de court terme ou instabilité réglementaire limitent fortement notre marge de manœuvre.",
+    "type": "Frein"
+  },
+  {
+    "id": "G12-2",
+    "family": "G12",
+    "title": "Horizons économiques et cadres institutionnels",
+    "scale": "P",
+    "text": "Nos horizons de financement et de décision sont alignés sur les échelles de temps de la transition.",
+    "type": "Moteur"
+  },
+  {
+    "id": "G12-3",
+    "family": "G12",
+    "title": "Horizons économiques et cadres institutionnels",
+    "scale": "P",
+    "text": "Nous analysons les interdépendances et plusieurs scénarios avant de décider.",
+    "type": "Moteur"
+  },
+  {
+    "id": "G13-1",
+    "family": "G13",
+    "title": "Représentations de la réussite et relations au vivant",
+    "scale": "C",
+    "text": "Dans notre secteur, la réussite se mesure à la croissance rapide ; les modèles sobres ou robustes ne sont pas priorisés.",
+    "type": "Frein"
+  },
+  {
+    "id": "G13-2",
+    "family": "G13",
+    "title": "Représentations de la réussite et relations au vivant",
+    "scale": "C",
+    "text": "Nous rendons visibles et légitimes des modèles de réussite sobres (résilience, territoire, bien-être).",
+    "type": "Moteur"
+  },
+  {
+    "id": "G13-3",
+    "family": "G13",
+    "title": "Représentations de la réussite et relations au vivant",
+    "scale": "C",
+    "text": "Nos équipes ont des occasions concrètes de contact avec le fruit de la transition.",
+    "type": "Moteur"
+  },
+  {
+    "id": "G14-1",
+    "family": "G14",
+    "title": "Coopération et interdépendances",
+    "scale": "O",
+    "text": "Nos équipes ou partenaires travaillent en silo, avec peu d\u0027entraide.",
+    "type": "Frein"
+  },
+  {
+    "id": "G14-2",
+    "family": "G14",
+    "title": "Coopération et interdépendances",
+    "scale": "O",
+    "text": "Nous intégrons des critères environnementaux et sociaux dans nos relations avec fournisseurs, clients et territoires.",
+    "type": "Moteur"
+  },
+  {
+    "id": "G14-3",
+    "family": "G14",
+    "title": "Coopération et interdépendances",
+    "scale": "O",
+    "text": "Des dispositifs collectifs d\u0027entraide ou de coopération existent.",
+    "type": "Moteur"
+  }
+]
